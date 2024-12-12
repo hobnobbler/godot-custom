@@ -1,3 +1,6 @@
+# godot-custom
+Repo for building custom versions of Godot from source - contains code for custom modules and scripts for compiling Godot with external libraries.
+
 # Usage
 
 ***Clone this repo and run the compilation script in `scripts` directory.***
