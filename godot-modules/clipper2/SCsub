@@ -1,0 +1,21 @@
+Import('env')
+
+module_env = env.Clone()
+
+# Add the Clipper2 include directory with an explicit relative path
+module_env.Append(CPPPATH=[
+    "#modules/clipper2/Clipper2Lib/include",          # Root include path
+    "#modules/clipper2/Clipper2Lib/include/clipper2" # Explicit clipper2 subfolder
+])
+
+# Set required compiler flags
+module_env.Append(CXXFLAGS=["-std=c++17", "-fPIC"])
+module_env.Append(CPPDEFINES=[
+    "CLIPPER2_MAX_DECIMAL_PRECISION=8",  # Default value
+])
+
+# Add Clipper2 source files
+module_env.add_source_files(module_env.modules_sources, "*.cpp")
+module_env.add_source_files(module_env.modules_sources, "Clipper2Lib/src/*.cpp")
+
+
